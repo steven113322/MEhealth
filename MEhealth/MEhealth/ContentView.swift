@@ -20,6 +20,9 @@ struct ContentView: View {
                 NavigationLink(destination: Information()) {
                     Text("Information")
                 }
+                NavigationLink(destination: Chatbot()) {
+                    Text("StevenBot")
+                }
             }
             .position(x: 200, y: 5)
         }
