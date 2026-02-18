@@ -37,7 +37,7 @@ struct DoctorView: View {
             .padding(25) // Adds space around the text
             .background(Color.purple) // Background color
             .cornerRadius(30)
-            .alert("Available Hours: 10 AM - 5 PM\nEmail: drcho@therapee.com", isPresented: $isAlert) {
+            .alert("Available Hours: 10 AM - 5 PM\nEmail: drcho@therapiee.com", isPresented: $isAlert) {
                 Button("OK") { } }
             Button("Dr. Jing Chen") {
                 isAlert=true
@@ -46,7 +46,7 @@ struct DoctorView: View {
             .padding(25) // Adds space around the text
             .background(Color.purple) // Background color
             .cornerRadius(30)
-            .alert("Available Hours: 12 PM - 7 AM\nEmail: drchen@therapee.com", isPresented: $isAlert) {
+            .alert("Available Hours: 12 PM - 7 AM\nEmail: drchen@therapiee.com", isPresented: $isAlert) {
                 Button("OK") { } }
             Button("Dr. Arjun Patel") {
                 isAlert=true
@@ -55,7 +55,7 @@ struct DoctorView: View {
             .padding(25) // Adds space around the text
             .background(Color.purple) // Background color
             .cornerRadius(30)
-            .alert("Available Hours: 11 AM - 6 PM\nEmail: drpateltherapee.com", isPresented: $isAlert) {
+            .alert("Available Hours: 11 AM - 6 PM\nEmail: drpateltherapiee.com", isPresented: $isAlert) {
                 Button("OK") { } }
             Button("Dr. Dylan Reyes") {
                 isAlert=true
@@ -64,7 +64,7 @@ struct DoctorView: View {
             .padding(25) // Adds space around the text
             .background(Color.purple) // Background color
             .cornerRadius(30)
-            .alert("Available Hours: 6 AM - 7 PM\nEmail: drreyes@therapee.com", isPresented: $isAlert) {
+            .alert("Available Hours: 6 AM - 7 PM\nEmail: drreyes@therapiee.com", isPresented: $isAlert) {
                 Button("OK") { } }
             Button("Dr. Brian Bik") {
                 isAlert=true
@@ -73,7 +73,7 @@ struct DoctorView: View {
             .padding(25) // Adds space around the text
             .background(Color.purple) // Background color
             .cornerRadius(30)
-            .alert("Available Hours: 8 AM - 5 PM\nEmail: drbik@therapee.com", isPresented: $isAlert) {
+            .alert("Available Hours: 8 AM - 5 PM\nEmail: drbik@therapiee.com", isPresented: $isAlert) {
                 Button("OK") { } }
         }.navigationTitle("Available Doctors")
     }
