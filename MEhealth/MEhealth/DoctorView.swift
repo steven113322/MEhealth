@@ -75,6 +75,15 @@ struct DoctorView: View {
             .cornerRadius(30)
             .alert("Available Hours: 8 AM - 5 PM\nEmail: drbik@therapiee.com", isPresented: $isAlert) {
                 Button("OK") { } }
+            Button("Dr. Jack Therapist") {
+                isAlert=true
+            }
+            .foregroundColor(.white) // Text color
+            .padding(25) // Adds space around the text
+            .background(Color.purple) // Background color
+            .cornerRadius(30)
+            .alert("Available Hours: 9 AM - 4 PM\nEmail: drtherapist@therapiee.com", isPresented: $isAlert) {
+                Button("OK") { } }
         }.navigationTitle("Available Doctors")
     }
     
