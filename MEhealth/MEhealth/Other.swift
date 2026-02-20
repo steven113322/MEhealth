@@ -29,22 +29,222 @@ struct Other: View {
 }
 struct Hysteria: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                
+                Text("")
+                    .font(.body)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Symptoms")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Causes")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Treatments")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+            }
+            .padding()
+        }
+        .navigationTitle("")
     }
 }
 struct Neurasthenia: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                
+                Text("")
+                    .font(.body)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Symptoms")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Causes")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Treatments")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+            }
+            .padding()
+        }
+        .navigationTitle("")
     }
 }
 struct Moral: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                
+                Text("")
+                    .font(.body)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Symptoms")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Causes")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Treatments")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+            }
+            .padding()
+        }
+        .navigationTitle("")
     }
 }
 struct Shell: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                
+                Text("")
+                    .font(.body)
+                    .padding()
+                    .background(Color(.systemGray6))
+                    .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Symptoms")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Causes")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Treatments")
+                        .font(.title2)
+                        .bold()
+                    
+                    Text("""
+                    
+                    """)
+                }
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+            }
+            .padding()
+        }
+        .navigationTitle("")
     }
 }
 #Preview {
