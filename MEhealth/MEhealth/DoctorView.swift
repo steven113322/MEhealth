@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct DoctorView: View {
-    var nameList = ["David", "John", "Steven", "Brandon"]
-    var descriptionList = ["Software Developer", "Software Engineer", "Software Architect", "HI"]
+    var nameList = ["Dr. Hwarang Cho", "Dr. John Wang", "Dr. Steven Wang", "Dr. Brandon Sam"]
+    var descriptionList = ["Psychotherapist", "Emotional Therapist", "Therapist", "Therapist"]
     var symbolList = ["person.fill", "person.fill", "person.fill", "person.fill"]
     var pictureList = ["4943", "4545", "3246", "9331"]
     

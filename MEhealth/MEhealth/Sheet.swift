@@ -14,17 +14,23 @@ struct SheetInformation: View {
     let pictureList: String
     
     var body: some View {
-        Text(name)
-            .font(.title)
-        Image(pictureList)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 200, height: 200)
-            .position(x: 100, y: 100)
-            .cornerRadius(50)
-    
-        Text(description)
-            .font(.title)
+        VStack {
+            Text(name)
+                .font(.title)
+                .padding(10)
+            HStack {
+                Image(pictureList)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+                    .position(x: 100, y: 100)
+                    .cornerRadius(50)
+            
+                Text(description)
+                    .font(.title)
+                    .position(x: 80, y: 100)
+            }
+        }
     }
 }
 
