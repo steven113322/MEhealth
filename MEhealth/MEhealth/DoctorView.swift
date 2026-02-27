@@ -8,87 +8,51 @@
 import SwiftUI
 
 struct DoctorView: View {
-    @State private var isAlert: Bool = false
+    var nameList = ["David", "John", "Steven", "Brandon"]
+    var descriptionList = ["Software Developer", "Software Engineer", "Software Architect", "HI"]
+    var symbolList = ["person.fill", "person.fill", "person.fill", "person.fill"]
+    var pictureList = ["4943", "4545", "3246", "9331"]
+    
+    @State private var selectedIndex: Int? = nil
+    
     var body: some View {
         VStack {
-            //Title("Available Doctors")
-            Button("Dr. David Doctor") {
-                isAlert=true
+            ForEach(0..<4, id: \.self) { index in
+                Button(action: {
+                    selectedIndex = index
+                }) {
+                    HStack {
+                        Image(systemName: symbolList[index])
+                        Text(nameList[index])
+                    }
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
+                .buttonStyle(.plain)
             }
-            .foregroundColor(.white) // Text color
-            .padding(25) // Adds space around the text
-            .background(Color.purple) // Background color
-            .cornerRadius(30)
-            .alert("Available Hours: 8 AM - 7 PM\nEmail: drdavid@therapiee.com", isPresented: $isAlert) {
-                Button("OK") { } }
-            Button("Dr. Steven Wang") {
-                isAlert=true
+        }
+        .padding()
+        .sheet(item: Binding(
+            get: {
+                selectedIndex.map { SheetSelection(index: $0) }
+            },
+            set: { newValue in
+                selectedIndex = newValue?.index
             }
-            .foregroundColor(.white) // Text color
-            .padding(25) // Adds space around the text
-            .background(Color.purple) // Background color
-            .cornerRadius(30)
-            .alert("Available Hours: 9 AM - 5 PM\nEmail: drwang@therapiee.com", isPresented: $isAlert) {
-                Button("OK") { } }
-            Button("Dr. Hwarang Cho") {
-                isAlert=true
-            }
-            .foregroundColor(.white) // Text color
-            .padding(25) // Adds space around the text
-            .background(Color.purple) // Background color
-            .cornerRadius(30)
-            .alert("Available Hours: 10 AM - 5 PM\nEmail: drcho@therapiee.com", isPresented: $isAlert) {
-                Button("OK") { } }
-            Button("Dr. Jing Chen") {
-                isAlert=true
-            }
-            .foregroundColor(.white) // Text color
-            .padding(25) // Adds space around the text
-            .background(Color.purple) // Background color
-            .cornerRadius(30)
-            .alert("Available Hours: 12 PM - 7 AM\nEmail: drchen@therapiee.com", isPresented: $isAlert) {
-                Button("OK") { } }
-            Button("Dr. Arjun Patel") {
-                isAlert=true
-            }
-            .foregroundColor(.white) // Text color
-            .padding(25) // Adds space around the text
-            .background(Color.purple) // Background color
-            .cornerRadius(30)
-            .alert("Available Hours: 11 AM - 6 PM\nEmail: drpateltherapiee.com", isPresented: $isAlert) {
-                Button("OK") { } }
-            Button("Dr. Dylan Reyes") {
-                isAlert=true
-            }
-            .foregroundColor(.white) // Text color
-            .padding(25) // Adds space around the text
-            .background(Color.purple) // Background color
-            .cornerRadius(30)
-            .alert("Available Hours: 6 AM - 7 PM\nEmail: drreyes@therapiee.com", isPresented: $isAlert) {
-                Button("OK") { } }
-            Button("Dr. Brian Bik") {
-                isAlert=true
-            }
-            .foregroundColor(.white) // Text color
-            .padding(25) // Adds space around the text
-            .background(Color.purple) // Background color
-            .cornerRadius(30)
-            .alert("Available Hours: 8 AM - 5 PM\nEmail: drbik@therapiee.com", isPresented: $isAlert) {
-                Button("OK") { } }
-            Button("Dr. Jack Therapist") {
-                isAlert=true
-            }
-            .foregroundColor(.white) // Text color
-            .padding(25) // Adds space around the text
-            .background(Color.purple) // Background color
-            .cornerRadius(30)
-            .alert("Available Hours: 9 AM - 4 PM\nEmail: drtherapist@therapiee.com", isPresented: $isAlert) {
-                Button("OK") { } }
-        }.navigationTitle("Available Doctors")
+        )) { selection in
+            let i = selection.index
+            SheetInformation(name: nameList[i], description: descriptionList[i], pictureList: pictureList[i])
+        }
     }
-    
+}
+
+private struct SheetSelection: Identifiable {
+    let index: Int
+    var id: Int { index }
 }
 
 #Preview {
-    DoctorView()
+    ContentView()
 }
