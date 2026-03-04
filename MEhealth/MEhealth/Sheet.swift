@@ -12,22 +12,35 @@ struct SheetInformation: View {
     let name: String
     let description: String
     let pictureList: String
+    let description2: String
     
     var body: some View {
-        Text(name)
-            .font(.title)
-        Image(pictureList)
-            .resizable()
-            .scaledToFit()
-            .frame(width: 200, height: 200)
-            .position(x: 100, y: 100)
-            .cornerRadius(50)
-    
-        Text(description)
-            .font(.title)
+        ScrollView{
+            VStack{
+                Text(name)
+                    .font(.title)
+                    Spacer()
+                HStack{
+                    Image(pictureList)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        
+                        Spacer()
+                    
+                    
+                    Text(description)
+                        .font(.system(size: 18))
+                }
+                .padding()
+                Text(description2)
+                    .frame(width: 380)
+                    .font(.system(size: 20))
+            }
+        }
     }
 }
 
 #Preview {
-    SheetInformation(name: "Hello", description: "Hello", pictureList: "4943")
+    SheetInformation(name: "Steven", description: "12 years experience\n\nAnxiety, Depression, Stress\n\nAdults & Young Adults\n\nIn-person & Online", pictureList: "3246", description2: "About\nDr. Sarah Miller is a licensed clinical psychologist with extensive experience helping patients improve emotional health through evidence-based therapy.\n\nEducation\nPhD in Clinical Psychology — Harvard University\n\nInternship — Massachusetts General Hospital\n\nLicenses & Certifications\nLicensed Clinical Psychologist (LCP) — State of California\nNational Register of Health Service Psychologists\nCertified in Cognitive Behavioral Therapy (CBT)\n\nTreatment Areas\nAnxiety disorders\nDepression\nStress management\nLife transitions\nSelf-esteem issues")
 }
