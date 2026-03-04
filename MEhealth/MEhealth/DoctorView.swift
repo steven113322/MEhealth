@@ -40,6 +40,10 @@ struct DoctorView: View {
             details: "About\nDr. Brandon helps couples and families strengthen communication, resolve conflict, and navigate cultural pressures while honoring their unique backgrounds.\n\nEducation\nPhD in Marriage & Family Therapy — USC\nFellowship — Pacific Clinics\n\nLicenses & Certifications\n LMFT – CA (#MFC-75320)\nGottman Method Level 3 Certified\n\nTreatment Areas\nCouples conflict\nIntercultural relationships\nParenting challenges\nAdolescent-family dynamics\n\nLanguages\nEnglish, Hindi, Malayalam"
         )
     ]
+    var nameList = ["Dr. Hwarang Cho", "Dr. John Wang", "Dr. Steven Wang", "Dr. Brandon Sam"]
+    var descriptionList = ["Psychotherapist", "Emotional Therapist", "Therapist", "Therapist"]
+    var symbolList = ["person.fill", "person.fill", "person.fill", "person.fill"]
+    var pictureList = ["4943", "4545", "3246", "9331"]
     
     @State private var selectedIndex: Int? = nil
     
