@@ -7,33 +7,55 @@
 
 import SwiftUI
 
+struct AnxietyButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(maxWidth: 200, maxHeight: 50)
+            .background(.ultraThinMaterial)
+            .foregroundColor(.white)
+            .cornerRadius(10)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+    }
+}
+
 struct Anxiety: View {
     var body: some View {
-        NavigationStack{
-            List {
-                NavigationLink(destination: Generalized()) {
-                    Text("Generalized Anxiety Disorder (GAD)")
-                }
-                NavigationLink(destination: PanicD()) {
-                    Text("Panic Disorder")
-                }
-                NavigationLink(destination: PanicA()) {
-                    Text("Panic Attacks")
-                }
-                NavigationLink(destination: Agoraphobia()) {
-                    Text("Agoraphobia")
-                }
-                NavigationLink(destination: Generalized()) {
-                    Text("Generalized Anxiety Disorder (GAD)")
-                }
-                NavigationLink(destination: Social()) {
-                    Text("Social Anxiety Disorder")
-                }
-                NavigationLink(destination: Separation()) {
-                    Text("Separation Anxiety Disorder")
-                }
-                NavigationLink(destination: Generalized()) {
-                    Text("Selective Mutism")
+        ZStack {
+            LinearGradient(
+                colors: [
+                    Color(red: 0.10, green: 0.45, blue: 0.90),
+                    Color(red: 0.40, green: 0.80, blue: 0.95)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
+            NavigationStack{
+                List {
+                    NavigationLink(destination: Generalized()) {
+                        Text("Generalized Anxiety Disorder (GAD)")
+                    }
+                    NavigationLink(destination: PanicD()) {
+                        Text("Panic Disorder")
+                    }
+                    NavigationLink(destination: PanicA()) {
+                        Text("Panic Attacks")
+                    }
+                    NavigationLink(destination: Agoraphobia()) {
+                        Text("Agoraphobia")
+                    }
+                    NavigationLink(destination: Generalized()) {
+                        Text("Generalized Anxiety Disorder (GAD)")
+                    }
+                    NavigationLink(destination: Social()) {
+                        Text("Social Anxiety Disorder")
+                    }
+                    NavigationLink(destination: Separation()) {
+                        Text("Separation Anxiety Disorder")
+                    }
+                    NavigationLink(destination: Generalized()) {
+                        Text("Selective Mutism")
+                    }
                 }
             }
         }
