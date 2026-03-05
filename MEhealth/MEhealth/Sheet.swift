@@ -17,18 +17,20 @@ struct SheetInformation: View {
         ScrollView {
             VStack() {
                 Text(name)
-                    .font(.title)
+                    .font(.title).bold()
 
                 HStack(alignment: .top, spacing: 16) {
                     Image(pictureList)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .cornerRadius(16)
-
-                    Text(description)
-                        .font(.system(size: 17))
-                        .frame(height: 200)
+                        .frame(width: 180, height: 180)
+                        .cornerRadius(30)
+                    VStack {
+                        Text(description)
+                            .font(.system(size: 17))
+                            .frame(height: 200)
+                            .bold()
+                    }
                 }
 
                 Text(description2)
