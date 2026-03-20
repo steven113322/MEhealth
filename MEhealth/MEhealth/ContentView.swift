@@ -11,8 +11,9 @@ struct PrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: 200, maxHeight: 50)
-            .background(.ultraThinMaterial)
+            .background(.blue)
             .foregroundColor(.white)
+            .bold()
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
     }
@@ -22,24 +23,15 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient(
-                    colors: [
-                        Color(red: 0.10, green: 0.45, blue: 0.90),
-                        Color(red: 0.40, green: 0.80, blue: 0.95)
-                    ],
-                    startPoint: .topLeading,
-                    endPoint: .bottomTrailing
-                )
-                .ignoresSafeArea()
-                Image(.icon)
+                Image(.icon2)
                     .resizable()
                     .frame(maxWidth: 150, maxHeight: 150)
-                    .position(x: 200, y: 200)
+                    .position(x: 200, y: 170)
                 VStack(spacing: 40) {
                     Text("MEhealth")
                         .font(.largeTitle)
                         .bold()
-                        .foregroundColor(.white)
+                        .foregroundColor(.black)
                         .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
 
                     VStack(spacing: 16) {
@@ -53,6 +45,10 @@ struct ContentView: View {
                         }
                         NavigationLink(destination: Chatbot()) {
                             Text("AI Doctor")
+                                .padding()
+                        }
+                        NavigationLink(destination: Settings()) {
+                            Text("Settings")
                                 .padding()
                         }
                     }

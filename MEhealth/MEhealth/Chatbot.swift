@@ -6,21 +6,12 @@ struct Chatbot: View {
 @State private var user: String = ""
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [
-                    Color(red: 0.10, green: 0.45, blue: 0.90),
-                    Color(red: 0.40, green: 0.80, blue: 0.95)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
             VStack {
                 HStack {
-                                TextField("Type a message…", text: $user)
+                    TextField("Type a message…", text: $user)
                         .frame(maxWidth: 1000, maxHeight: 40)
-                        .background(.ultraThinMaterial)
-                        .foregroundColor(.white)
+                        .background()
+                        .foregroundColor(.black)
                         .cornerRadius(10)
 
                                 Button("Send") {
@@ -28,13 +19,14 @@ struct Chatbot: View {
                                         await send()
                                     }
                                 }.frame(maxWidth: 70, maxHeight: 40)
-                        .background(.ultraThinMaterial)
+                        .background(.blue)
+                        .bold()
                         .foregroundColor(.white)
                         .cornerRadius(10)
                             }
                             .padding()
                ScrollView {
-                   Text(reply).foregroundStyle(Color.white)
+                   Text(reply).foregroundStyle(Color.black)
                 }
                 .padding()
             }

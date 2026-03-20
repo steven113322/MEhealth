@@ -13,8 +13,9 @@ struct DoctorButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: 200, maxHeight: 50)
-            .background(.ultraThinMaterial)
+            .background(.blue)
             .foregroundColor(.white)
+            .bold()
             .cornerRadius(10)
             .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
     }
@@ -60,15 +61,6 @@ struct DoctorView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(
-                colors: [
-                    Color(red: 0.10, green: 0.45, blue: 0.90),
-                    Color(red: 0.40, green: 0.80, blue: 0.95)
-                ],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
-            .ignoresSafeArea()
             VStack {
                 ForEach(Array(doctors.enumerated()), id: \.element.id) { index, doctor in
                     Button(action: {
