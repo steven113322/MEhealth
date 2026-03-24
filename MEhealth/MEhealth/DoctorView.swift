@@ -13,7 +13,7 @@ struct DoctorButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(maxWidth: 200, maxHeight: 50)
-            .background(.blue)
+            .background(.teal)
             .foregroundColor(.white)
             .bold()
             .cornerRadius(10)

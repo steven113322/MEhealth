@@ -19,7 +19,7 @@ struct Chatbot: View {
                                         await send()
                                     }
                                 }.frame(maxWidth: 70, maxHeight: 40)
-                        .background(.blue)
+                        .background(.teal)
                         .bold()
                         .foregroundColor(.white)
                         .cornerRadius(10)
