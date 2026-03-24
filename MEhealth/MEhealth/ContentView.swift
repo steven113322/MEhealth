@@ -33,7 +33,6 @@ struct ContentView: View {
                         .bold()
                         .foregroundColor(.black)
                         .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
-
                     VStack(spacing: 16) {
                         NavigationLink(destination: DoctorView()) {
                             Text("Appointments")
