@@ -2,24 +2,35 @@ import SwiftUI
 
 
 struct Chatbot: View {
-    @State private var reply = "Hello, how can I help you"
+    @State private var reply = "Hello! What seems to be the problem?"
 @State private var user: String = ""
     var body: some View {
-        HStack {
-                        TextField("Type a message…", text: $user)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+        ZStack {
+            VStack {
+                HStack {
+                    TextField("Type a message…", text: $user)
+                        .frame(maxWidth: 1000, maxHeight: 40)
+                        .background()
+                        .foregroundColor(.black)
+                        .cornerRadius(10)
 
-                        Button("Send") {
-                            Task {
-                                await send()
+                                Button("Send") {
+                                    Task {
+                                        await send()
+                                    }
+                                }.frame(maxWidth: 70, maxHeight: 40)
+                        .background(.teal)
+                        .bold()
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
                             }
-                        }
-                    }
-                    .padding()
-       ScrollView {
-           Text(reply)
+                            .padding()
+               ScrollView {
+                   Text(reply).foregroundStyle(Color.black)
+                }
+                .padding()
+            }
         }
-        .padding()
     }
     func send() async {
             let text = user
@@ -50,7 +61,7 @@ struct Part: Decodable {
     let text: String
 }
 
-let apiKey = "AIzaSyBlADe7bMZFjihT69V9DPrea6y0ItRxOSE"
+let apiKey = "AIzaSyA_pjTA_cIryPf7STYkyQFYfH1HlPvER9A"
 
 func getAiResponse(prompt: String) async throws -> String {
     let url = URL(string:

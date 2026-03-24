@@ -9,6 +9,18 @@ struct Doctor: Identifiable {
     var details: String
 }
 
+struct DoctorButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(maxWidth: 200, maxHeight: 50)
+            .background(.teal)
+            .foregroundColor(.white)
+            .bold()
+            .cornerRadius(10)
+            .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+    }
+}
+
 struct DoctorView: View {
     var doctors: [Doctor] = [
         Doctor(
@@ -48,23 +60,22 @@ struct DoctorView: View {
     @State private var selectedIndex: Int? = nil
     
     var body: some View {
-        VStack {
-            ForEach(Array(doctors.enumerated()), id: \.element.id) { index, doctor in
-                Button(action: {
-                    selectedIndex = index
-                }) {
-                    HStack {
-                        Image(systemName: doctor.symbolName)
-                        Text(doctor.name)
+        ZStack {
+            VStack {
+                ForEach(Array(doctors.enumerated()), id: \.element.id) { index, doctor in
+                    Button(action: {
+                        selectedIndex = index
+                    }) {
+                        HStack {
+                            Image(systemName: doctor.symbolName)
+                            Text(doctor.name)
+                        }
+                        .padding()
                     }
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
+                    .buttonStyle(DoctorButtonStyle())
                 }
-                .buttonStyle(.plain)
             }
         }
-        .padding()
         .sheet(item: Binding(
             get: {
                 selectedIndex.map { SheetSelection(index: $0) }
