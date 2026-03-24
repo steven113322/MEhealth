@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  MEhealth
-//
-//  Created by Student on 1/26/26.
-//
-
 import SwiftUI
 
 struct PrimaryButtonStyle: ButtonStyle {
@@ -19,6 +12,8 @@ struct PrimaryButtonStyle: ButtonStyle {
 }
 
 struct ContentView: View {
+    @Binding var showSignInView: Bool
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -31,10 +26,12 @@ struct ContentView: View {
                     endPoint: .bottomTrailing
                 )
                 .ignoresSafeArea()
-                Image(.icon)
+
+                Image(.good)
                     .resizable()
                     .frame(maxWidth: 150, maxHeight: 150)
                     .position(x: 200, y: 200)
+
                 VStack(spacing: 40) {
                     Text("MEhealth")
                         .font(.largeTitle)
@@ -58,11 +55,24 @@ struct ContentView: View {
                     }
                     .buttonStyle(PrimaryButtonStyle())
                 }
+
+                VStack {
+                    HStack {
+                        Spacer()
+                        NavigationLink(destination: SettingsView(showSignInView: $showSignInView)) {
+                            Image(systemName: "gearshape.fill")
+                                .font(.title2)
+                                .foregroundColor(.white)
+                                .padding()
+                        }
+                    }
+                    Spacer()
+                }
             }
         }
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(showSignInView: .constant(false))
 }

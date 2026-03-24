@@ -1,17 +1,15 @@
-//
-//  MEhealthApp.swift
-//  MEhealth
-//
-//  Created by Student on 1/26/26.
-//
-
 import SwiftUI
+import FirebaseCore
 
 @main
 struct MEhealthApp: App {
+    init() {
+        FirebaseApp.configure()
+    }
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }
