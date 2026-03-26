@@ -131,13 +131,21 @@ struct SignUpView: View {
     @State private var alertMessage = ""
     @State private var showAlert = false
 
+    private var reqs: PasswordRequirements { PasswordRequirements.check(password) }
     private var passwordsMatch: Bool { password == confirmPassword }
-    private var formValid: Bool { !email.isEmpty && !password.isEmpty && !confirmPassword.isEmpty }
+    private var formValid: Bool {
+        !email.isEmpty && !confirmPassword.isEmpty && reqs.isValid && passwordsMatch
+    }
 
     var body: some View {
         VStack(spacing: 14) {
             inputField(placeholder: "Email", text: $email, isSecure: false)
             passwordField(placeholder: "Password", text: $password, isVisible: $showPassword)
+
+            if !password.isEmpty {
+                PasswordRequirementsView(reqs: reqs)
+                    .padding(.horizontal, 32)
+            }
 
             VStack(alignment: .leading, spacing: 4) {
                 passwordField(placeholder: "Confirm Password", text: $confirmPassword, isVisible: $showConfirmPassword)
@@ -151,12 +159,6 @@ struct SignUpView: View {
 
             Button {
                 Task {
-                    guard passwordsMatch else {
-                        alertTitle = "Password Mismatch"
-                        alertMessage = "Your passwords don't match. Please try again."
-                        showAlert = true
-                        return
-                    }
                     do {
                         try await AuthenticationManager.shared.createUser(email: email, password: password)
                         showSignInView = false
@@ -182,13 +184,38 @@ struct SignUpView: View {
             }
             .padding(.horizontal, 32)
             .padding(.top, 8)
-            .disabled(!formValid || !passwordsMatch)
-            .opacity(!formValid || !passwordsMatch ? 0.5 : 1)
+            .disabled(!formValid)
+            .opacity(!formValid ? 0.5 : 1)
         }
         .alert(alertTitle, isPresented: $showAlert) {
             Button("OK", role: .cancel) {}
         } message: {
             Text(alertMessage)
+        }
+    }
+}
+
+struct PasswordRequirementsView: View {
+    let reqs: PasswordRequirements
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            requirementRow("At least 6 characters", met: reqs.minLength)
+            requirementRow("At least 1 uppercase letter", met: reqs.hasUppercase)
+            requirementRow("At least 1 number", met: reqs.hasNumber)
+            requirementRow("At least 1 special character", met: reqs.hasSpecialChar)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func requirementRow(_ text: String, met: Bool) -> some View {
+        HStack(spacing: 6) {
+            Image(systemName: met ? "checkmark.circle.fill" : "circle")
+                .foregroundStyle(met ? Color.teal : Color.secondary)
+                .font(.caption)
+            Text(text)
+                .font(.caption)
+                .foregroundStyle(met ? Color.primary : Color.secondary)
         }
     }
 }

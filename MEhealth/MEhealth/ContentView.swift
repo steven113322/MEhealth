@@ -20,6 +20,7 @@ struct PrimaryButtonStyle: ButtonStyle {
 }
 
 struct ContentView: View {
+    @Binding var showSignInView: Bool
     var body: some View {
         NavigationStack {
             ZStack {
@@ -33,7 +34,7 @@ struct ContentView: View {
                         .bold()
                         .foregroundColor(.black)
                         .shadow(color: .black.opacity(0.2), radius: 4, x: 0, y: 2)
-
+                    
                     VStack(spacing: 16) {
                         NavigationLink(destination: DoctorView()) {
                             Text("Appointments")
@@ -47,7 +48,7 @@ struct ContentView: View {
                             Text("AI Doctor")
                                 .padding()
                         }
-                        NavigationLink(destination: Settings()) {
+                        NavigationLink(destination: SettingsView(showSignInView: $showSignInView)) {
                             Text("Settings")
                                 .padding()
                         }
@@ -56,9 +57,12 @@ struct ContentView: View {
                 }
             }
         }
+        .fullScreenCover(isPresented: $showSignInView) {
+            SigninEmailView(showSigninEmail: $showSignInView)
+        }
     }
-}
+    }
 
 #Preview {
-    ContentView()
+    ContentView(showSignInView: .constant(false))
 }
