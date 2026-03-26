@@ -10,14 +10,12 @@ struct AuthenticationView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            VStack(spacing: 6) {
-                (Text("ME")
-                    .font(.system(size: 52, weight: .black, design: .rounded))
-                    .foregroundStyle(Color.teal) +
-                Text("health")
-                    .font(.system(size: 52, weight: .light, design: .rounded))
-                    .foregroundStyle(Color.primary))
-
+            VStack(spacing: 0) {
+                HStack(spacing: -15){
+                    Image(.fulllogo)
+                        .resizable()
+                        .frame(maxWidth: 250, maxHeight: 150)
+                }
                 Text("Your personal health companion")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
